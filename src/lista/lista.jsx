@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import PageHeader from '../template/pageHeader'
 
 export default class Lista extends Component {
     render() {
         return(
             <div>
-                <h1>Lista</h1>
+                <PageHeader name='Tarefas' small='Cadastro'/>
             </div>
         )
     }
