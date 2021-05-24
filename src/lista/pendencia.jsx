@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import PageHeader from '../template/pageHeader'
-import ListaForm from './listaForm'
-import ListaLista from './listaLista'
+import pendenciaForm from './pendenciaForm'
+import pendenciaLista from './pendenciaLista'
 
-export default class Lista extends Component {
+export default class Pendencia extends Component {
     render() {
         return(
             <div>
                 <PageHeader name='Tarefas' small='Cadastro'/>
-                <ListaForm />
-                <ListaLista />
+                <pendenciaForm />
+                <pendenciaLista />
             </div>
         )
     }
