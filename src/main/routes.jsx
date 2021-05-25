@@ -1,7 +1,7 @@
 import React from 'react'
 import { Router, Route, Redirect, hashHistory } from 'react-router'
 
-import Pendencia from '../lista/pendencia'
+import Pendencia from '../pendencia/pendencia'
 import About from '../about/about'
 
 export default props => (
