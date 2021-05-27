@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
+import axios from 'axios'
+
 import PageHeader from '../template/pageHeader'
 import PendenciaForm from './pendenciaForm'
 import PendenciaLista from './pendenciaLista'
+
+const URL = 'http://localhost:3003/api/listas'
 
 export default class Pendencia extends Component {
     constructor(props) {
@@ -17,7 +21,9 @@ export default class Pendencia extends Component {
     }
 
     handleAdd() {
-        console.log(this.state.description)
+        const description = this.state.description
+        axios.post(URL, { description })
+            .then(resp => console.log('Funcionou!'))
     }
 
     render() {
