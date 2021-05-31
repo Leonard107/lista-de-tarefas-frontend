@@ -15,7 +15,8 @@ export default class Pendencia extends Component {
         this.handleChange = this.handleChange.bind(this)
         this.handleAdd = this.handleAdd.bind(this) 
         this.handleRemove = this.handleRemove.bind(this)
-        
+        this.handleMarkAsDone = this.handleMarkAsDone.bind(this)
+        this.handleMarkAsPending = this.handleMarkAsPending.bind(this)
         this.refresh()
     }
 
@@ -39,15 +40,31 @@ export default class Pendencia extends Component {
             .then(resp => this.refresh())
     }
 
+    handleMarkAsDone(lista){
+        axios.put(`${URL}/${lista._id}`, {...lista, done: true})
+            .then(resp => this.refresh())
+    }
+
+    handleMarkAsPending(lista){
+        axios.put(`${URL}/${lista._id}`, {...lista, done: false})
+            .then(resp => this.refresh())
+    }
+
     render() {
         return(
             <div>
                 <PageHeader name='Tarefas' small='Cadastro'/>
-                <PendenciaForm description={this.state.description}
+                <PendenciaForm 
+                    description={this.state.description}
                     handleChange={this.handleChange}
                     handleAdd={this.handleAdd}/>
-                <PendenciaLista list={this.state.list} 
-                    handleRemove={this.handleRemove} />
+                <PendenciaLista 
+                    list={this.state.list} 
+                    handleRemove={this.handleRemove}
+                    handleMarkAsDone={this.handleMarkAsDone} 
+                    handleMarkAsPending={this.handleMarkAsPending}
+                    />
+                    
             </div>
         )
     }
